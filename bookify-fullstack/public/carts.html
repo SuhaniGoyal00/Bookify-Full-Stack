@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: url(https://t3.ftcdn.net/jpg/05/34/69/32/360_F_534693205_lOcpfVGlO5VWw4NmGbB5otMbki2NpaYs.jpg);
+}
+
+.cart-summary {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.cart-summary {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-summary h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.cart-summary .btn{
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+.cart-details {
+    font-size: 16px;
+}
+
+.cart-details p {
+    margin: 10px 0;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+#couponbtn{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    height: 30px;
+   border-radius: 8%;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+#inputcoupon{
+    height: 50px;
+    
+
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .product-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="cart-summary">
+        <h2><strong>Cart Summary</strong></h2>
+        <div class="cart-details">
+            <p><strong>Items in Cart:</strong> <span id="cart-count">0</span></p>
+            <p><strong>Total Price:</strong> <span id="total-price">₹0</span></p>
+
+            <div class="coupon-section">
+                <input type="text" id="couponCode" class="inputcoupon" placeholder="Enter coupon code">
+                <button onclick="applyCoupon()" id="couponbtn">Apply Coupon</button>
+            </div>
+
+            <div id="discountMessage" class="hidden">
+                <p>Discounted Total : <span id="discounted-price"></span></p>
+            </div>
+
+            <a href="payment.html" class="btn">Pay Now</a>
+        </div>
+    </div>
+
+    <div class="product-container">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv1.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 1</h3>
+            <p class="product-price">₹499</p>
+            <button class="add-to-cart" onclick="addToCart(499)">Add to Cart</button>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv2.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 2</h3>
+            <p class="product-price">₹599</p>
+            <button class="add-to-cart" onclick="addToCart(599)">Add to Cart</button>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv3.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 3</h3>
+            <p class="product-price">₹699</p>
+            <button class="add-to-cart" onclick="addToCart(699)">Add to Cart</button>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv4.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 4</h3>
+            <p class="product-price">₹799</p>
+            <button class="add-to-cart" onclick="addToCart(799)">Add to Cart</button>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv5.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 5</h3>
+            <p class="product-price">₹899</p>
+            <button class="add-to-cart" onclick="addToCart(899)">Add to Cart</button>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th2.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 6</h3>
+            <p class="product-price">₹999</p>
+            <button class="add-to-cart" onclick="addToCart(999)">Add to Cart</button>
+        </div>
+        <!-- Product Card 7 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th4.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 7</h3>
+            <p class="product-price">₹1099</p>
+            <button class="add-to-cart" onclick="addToCart(1099)">Add to Cart</button>
+        </div>
+        <!-- Product Card 8 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r3.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 8</h3>
+            <p class="product-price">₹1199</p>
+            <button class="add-to-cart" onclick="addToCart(1199)">Add to Cart</button>
+        </div>
+        <!-- Product Card 9 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r6.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 9</h3>
+            <p class="product-price">₹1299</p>
+            <button class="add-to-cart" onclick="addToCart(1299)">Add to Cart</button>
+        </div>
+        <!-- Product Card 10 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r7.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 10</h3>
+            <p class="product-price">₹1399</p>
+            <button class="add-to-cart" onclick="addToCart(1399)">Add to Cart</button>
+        </div>
+        <!-- Product Card 11 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c2.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 11</h3>
+            <p class="product-price">₹1499</p>
+            <button class="add-to-cart" onclick="addToCart(1499)">Add to Cart</button>
+        </div>
+        <!-- Product Card 12 -->
+        <div class="product-card">
+            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c4.jfif" alt="Product Image" class="product-image">
+            <h3 class="product-name">Book 12</h3>
+            <p class="product-price">₹1599</p>
+            <button class="add-to-cart" onclick="addToCart(1599)">Add to Cart</button>
+        </div>
+    </div>
+    
+
+    <!-- <script>
+       
+let cartCount = 0;
+let totalPrice = 0;
+
+function addToCart(price) {
+    cartCount++;
+    totalPrice += price;
+
+   
+    document.getElementById('cart-count').textContent = cartCount;
+    document.getElementById('total-price').textContent = ₹${totalPrice};
+};
+
+    </script> -->
+    <script>
+    // script.js
+    let cartCount = 0;
+        let totalPrice = 0;
+        const validCoupon = 'FIRST10'; 
+        const discountPercentage = 10; 
+
+        function addToCart(price) {
+            cartCount++;
+            totalPrice += price;
+
+            
+            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('total-price').textContent = `₹${totalPrice}`;
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponCode').value.trim().toUpperCase();
+
+            if (couponCode === validCoupon) {
+                const discount = (totalPrice * discountPercentage) / 100;
+                const discountedPrice = totalPrice - discount;
+
+                
+                document.getElementById('discounted-price').textContent = discountedPrice.toFixed(2);
+                document.getElementById('discountMessage').classList.remove('hidden');
+            } else {
+                alert('Invalid coupon code. Please try again.');
+            }
+        }
+</script>
+
+</body>
+</html>

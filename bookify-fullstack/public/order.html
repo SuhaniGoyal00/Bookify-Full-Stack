@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+h2{
+    text-align: center;
+    color: #28a745;
+}
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#iconContainer {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #34db47;
+    text-align: center;
+   justify-content: center;
+   align-items: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    display: block; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.checkmark {
+    font-size: 50px;
+    color: #28a745;
+    display: none;
+}
+
+#message {
+    font-size: 18px;
+    margin-top: 20px;
+    display: none;
+    color: #1b891d;
+    font-weight: bold;
+}
+
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div id="iconContainer">
+              <!-- <h2>Thank You!</h2> -->
+            <div id="loading" class="loader"></div>
+            <div id="success" class="checkmark">&#10003;</div>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <script>
+       
+window.onload = function() {
+  
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";  
+        document.getElementById("success").style.display = "block";   
+        document.getElementById("message").innerHTML = "Your order has been made!";  
+        document.getElementById("message").style.display = "block";  
+    }, 1500);  
+};
+
+    </script>
+</body>
+</html>

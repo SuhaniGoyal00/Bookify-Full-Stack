@@ -1,0 +1,706 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://use.fontawesome.com/be1ba39dfe.js"></script>
+        
+        <title>Book Zone</title>
+        <style>
+*{
+    background: url(https://t3.ftcdn.net/jpg/05/34/69/32/360_F_534693205_lOcpfVGlO5VWw4NmGbB5otMbki2NpaYs.jpg);
+    background-size: cover;
+    background-position: center;
+}
+body {margin:0;
+   
+   }
+
+
+
+.section-body{
+    background: url(https://t3.ftcdn.net/jpg/05/34/69/32/360_F_534693205_lOcpfVGlO5VWw4NmGbB5otMbki2NpaYs.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-left: 15px;
+}
+.section-body h4{
+    font-size: large;
+}
+
+.vertical-nav
+{
+    padding-top: 10px;
+}
+
+
+.section-body ul {
+    list-style-type: none;
+    width: 18%;
+    background-color: #696a76;
+    position: fixed;
+    height: auto;
+    overflow: auto;
+  }
+  .section-body ul h4{
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  .section-body  li a {
+    font-size: 1.5rem;
+    display: block;
+    color: #fff;
+    padding: 6px 10px;
+    text-decoration: none;
+    margin-top: 0;
+  }
+  
+  .section-body li a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .section-body li a:hover:not(.active) {
+    background-color: #bdb9b9;
+    color: white;
+  }
+
+
+  .image-holder{
+    border: 1px solid #ccc;
+    transition-duration:200ms;
+    transition-timing-function: ease-out;
+  }
+  
+  .image-holder:hover {
+    border: 2px solid white;
+    transform: scale(1.05,1.05);
+  }
+  
+.gallery{
+    
+    display: flex;
+    flex-direction: row; 
+    column-gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.gallery-main h2{
+    color: white;
+    font-size: 2rem;
+}
+
+div.desc {
+    text-align: center;
+    width: 100%;
+    color: #fff;
+ }
+
+ .desc i{
+    float: left !important;
+    padding-left: 10px;
+ }
+
+ .desc button{
+    float:right !important;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #fff;
+ }
+
+.gallery img{
+    height: 250px;
+    width:200px;
+}
+
+.btn
+{
+    display: block;
+    border-radius: 5px;
+    color:white;
+    
+    font-size:20px;
+    text-decoration: none;
+    width:fit-content;
+    height:fit-content;
+    padding:5px;
+}
+
+.btn:hover{
+    background-color: rgb(31, 199, 106)ue;
+}
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+            .section-body ul {
+                width: 25%;
+            }
+
+            .gallery-main {
+                margin-left: 25%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-body ul {
+                width: 30%;
+            }
+
+            .gallery-main {
+                margin-left: 30%;
+            }
+
+            .gallery img {
+                height: 200px;
+                width: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-body ul {
+                width: 40%;
+                position: static;
+                height: auto;
+            }
+
+            .gallery-main {
+                margin-left: 0;
+            }
+
+            .gallery img {
+                height: 180px;
+                width: 140px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-body ul {
+                width: 100%;
+                background-color: transparent;
+                position: static;
+            }
+
+            .gallery img {
+                height: 150px;
+                width: 120px;
+            }
+
+            .desc i,
+            .desc button {
+                float: none;
+                display: block;
+                margin: 0;
+            }
+        }
+        #cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            width: 300px;
+            color: white;
+        }
+        #cart h3 {
+            margin: 0;
+            color: white;
+        }
+        #cart-items {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            color: white;
+        }
+        #pay{
+            color: white;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="section-body">
+            <div class="vertical-nav">
+                <ul>
+                    <h4><left>Category</left></h4>
+                    <li><a href="#Adventure">Adventure</a></li>
+                    <li><a href="#Thriller">Thriller</a></li>
+                    <li><a href="#Romantic">Romantic</a></li>
+                    <li><a href="#Comedy">Comedy</a></li>
+                </ul>
+            </div>
+
+            <div class="gallery-main" style="margin-left:25%;padding:1px 16px;height:1000px;">
+                <div class="Adventure" id="Adventure">
+                    <h2>Adventure</h2>
+
+                    <div class="gallery">
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv1.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 200
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true" onclick="addToCart('Treasure Island', 200)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv2.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 250
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Magic of the Unicorn', 250)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv3.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 180
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Summer Adventure Stories', 180)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv4.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 460
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Dragon Run', 460)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/Adv5.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 390
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true" onclick="addToCart('The Abominal Snowman', 390)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/adv6.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 100
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Narnia', 100)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/adv7.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 304
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Mount Majestic', 304)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                        <div class="image-holder">
+                            <a href="#">
+                                <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/adv8.jfif" alt="img-1">
+                            </a>
+                            <div class="desc">
+                                Price : 340
+                                <br>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Magical Underwater', 340)"></i>
+                                <a href="payment.html"><button >Buy</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="Thriller" id="Thriller">
+                        <h2>Thriller</h2>
+    
+                        <div class="gallery">
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th1.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 120
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Darkest Before the Dawn', 120)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th2.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 402
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Takings', 402)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th3.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 299
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Death Sentence', 299)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th4.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 150
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Billion Dollar Spy', 150)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th5.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 300
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Dividing Line', 300)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th6.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 389
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Strange Weather', 389)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th7.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 269
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Mirror',269 )"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/th8.jfif" alt="img-1">
+                                </a>
+                                <div class="desc">
+                                    Price : 451
+                                    <br>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Anita Waller', 451)"></i>
+                                    <a href="payment.html"><button >Buy</button></a>
+                                </div>
+                            </div>
+    
+    
+                        </div>
+
+                        
+                        <div class="Romantic" id="Romantic">
+                            <h2>Romantic</h2>
+        
+                            <div class="gallery">
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r1.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 250
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('A Prince on paper', 250)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r2.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 300
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The rogue of fifth avenue', 300)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r3.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 450
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Marrying Winterborne', 450)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r4.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 299
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Scoundrels', 299)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r5.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 105
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Rosevean', 105)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r6.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 199
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('A Collectors Item', 199)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r7.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 299
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Highlander Series 1', 299"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+                                <div class="image-holder">
+                                    <a href="#">
+                                        <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/r8.jfif" alt="img-1">
+                                    </a>
+                                    <div class="desc">
+                                        Price : 349
+                                        <br>
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('A Challenge of Love and Faith', 349)"></i>
+                                        <a href="payment.html"><button >Buy</button></a>
+                                    </div>
+                                </div>
+        
+        
+                            </div>
+
+                            
+                            <div class="Comedy" id="Comedy">
+                                <h2>Comedy</h2>
+            
+                                <div class="gallery">
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c1.jfif" alt="img-1">
+                                         </a>
+                                        <div class="desc">
+                                            Price : 400
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('No Lands Man', 400)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c2.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 299
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Three Men in Boat',299)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c3.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 349
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Lose Well', 349)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c4.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 299
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Carry On Jevees', 299)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c5.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 199
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('I Must Say', 199)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c6.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 149
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Baggage', 149)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c7.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 349
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('Dangerously Funny', 349)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+                                    <div class="image-holder">
+                                        <a href="#">
+                                            <img src="https://raw.githubusercontent.com/himanshi-15/Book-Store/main/BookStore/images/c8.jfif" alt="img-1">
+                                        </a>
+                                        <div class="desc">
+                                            Price : 250
+                                            <br>
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"onclick="addToCart('The Bolds', 250)"></i>
+                                            <a href="payment.html"><button >Buy</button></a>
+                                        </div>
+                                    </div>
+            
+            
+                                </div>
+        
+                                
+                            
+                </div>
+            </div>
+            <div id="cart">
+                <h3>Shopping Cart</h3>
+                <br>
+                <div id="cart-items"></div>
+                <strong>Total: <span id="total-price">0</span></strong>
+                <br><br>
+               <a href="payment.html"> <button id="pay">Pay Now</button></a>
+            </div>
+            
+            <br>
+
+            <right> <a href="/index.html" class="btn">Back  </a></right>
+        </div>
+
+
+        <script>
+            let cart = [];
+            let total = 0;
+        
+            function addToCart(itemName, price) {
+               
+                cart.push({ name: itemName, price: price });
+                total += price;
+                displayCart();
+            }
+        
+            function displayCart() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const totalPriceElement = document.getElementById('total-price');
+                
+                
+                cartItemsContainer.innerHTML = '';
+        
+                
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.textContent = `${item.name} - Price: ${item.price}`;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+        
+               
+                totalPriceElement.textContent = total;
+            }
+        </script>
+        
+        
+
+
+    </body>
+
+</html> 

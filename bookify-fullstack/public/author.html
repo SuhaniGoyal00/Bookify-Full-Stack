@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <script src="https://use.fontawesome.com/be1ba39dfe.js"></script>
+    <style>
+        * {
+            background: url(https://t3.ftcdn.net/jpg/05/34/69/32/360_F_534693205_lOcpfVGlO5VWw4NmGbB5otMbki2NpaYs.jpg);
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #author-search {
+            margin: 20px;
+            text-align: center;
+        }
+        #author-input {
+            padding: 10px;
+            font-size: 16px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+        #author-suggestions {
+            list-style-type: none;
+            padding: 0;
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: left;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        #author-suggestions li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #author-suggestions li:hover {
+            background-color: #f0f0f0;
+        }
+        #author-info {
+            margin: 20px;
+            text-align: center;
+        }
+        #author-image {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            padding-left: 700px;
+        }
+        #book-list {
+            margin: 20px;
+            text-align: center;
+        }
+        #cart-icon {
+            width: 50px; 
+            height: auto;
+            margin-bottom: 10px;
+        }
+        #books {
+            list-style-type: none;
+            padding: 0;
+        }
+        #books li {
+            background-color: white;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .add-to-cart {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: #555;
+        }
+        #cart-count {
+            font-size: 18px;
+            margin-left: 10px;
+            color: yellow; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Authors Based Collection</h1>
+        <p>Search for your favorite author to see their books!</p>
+    </header>
+
+    <section id="author-search">
+        <label for="author-input">Search Author:</label>
+        <input type="text" id="author-input" oninput="searchAuthor()" placeholder="Type author name...">
+        <ul id="author-suggestions" style="display: none;"></ul>
+    </section>
+
+    <section id="author-info">
+        <img id="author-image" src="" alt="Author Image" style="display: none;">
+        <h2 id="author-name"></h2>
+    </section>
+
+    <section id="book-list">
+        <h3>Books by Selected Author</h3>
+        <!-- Add cart icon here -->
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <span id="cart-count">Items in Cart: 0</span> <!-- Cart item counter -->
+        <ul id="books"></ul>
+        
+  <a  href="payment.html" ><button >Pay Now</button></a>
+
+    </section>
+
+    <script>
+       
+        const authors = {
+            'mark-twain': {
+                name: 'Mark Twain',
+                image: 'https://th.bing.com/th/id/OIP.klOvIIMi0FuB_9XndVe4BwHaJ4?w=141&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                books: [
+                    { title: "The Adventures of Tom Sawyer", year: 1876 },
+                    { title: "Adventures of Huckleberry Finn", year: 1884 },
+                    { title: "The Price and The Pauper", year: 1881},
+                    { title: "The diaries of Adam and Eve", year: 1906},
+                    { title: "Roughing it", year: 1872},
+                    { title: "Joan of Arc", year: 1896},
+                    { tile: "What is Man?", year: 1906},
+                    { title: "The war prayer", year: 1905},
+                    { title: "The life of the mississippi", year: 1883}
+                ]
+            },
+            'jane-austen': {
+                name: 'Jane Austen',
+                image: 'https://th.bing.com/th/id/OIP.7X32iJM1eAe-3ohU4KzWdAHaKO?w=140&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                books: [
+                    { title: "Pride and Prejudice", year: 1813 },
+                    { title: "Sense and Sensibility", year: 1811 },
+                    { title: "Emma", year: 1815},
+                    { tile: "Lady Susan", year: 1871},
+                    { title: "Sanditon", year: 1975},
+                    { title: "The Watsons", year: 1805},
+                    { title: "Juvenilia", year: 2003},
+                    { title: "Mansfield Park", year: 1814},
+                    { title: "The history of england", year: 1791}
+                ]
+            },
+            'george-orwell': {
+                name: 'George Orwell',
+                image: 'https://th.bing.com/th/id/OIP.CCp8Du_ffUDrNS5MmlWRJwHaJ5?w=131&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+                books: [
+                    { title: "1984", year: 1949 },
+                    { title: "Animal Farm", year: 1945 },
+                    { title: "Burmese Days", year: 1934},
+                    { title: "Why I Write?", year: 1946},
+                    { titke: "Comin gup for air", year: 1938},
+                    { title: "Orwell on truth", year: 2017},
+                    { title: "Essays", year: 1968},
+                    { title: "How the poor die?", year: 1946},
+                    { title: "Orwell on freedom", year: 2018}
+                ]
+            }
+        };
+
+        let cartCount = 0; 
+        function searchAuthor() {
+            const input = document.getElementById('author-input').value.toLowerCase();
+            const suggestions = document.getElementById('author-suggestions');
+            const bookList = document.getElementById('books');
+            const authorName = document.getElementById('author-name');
+            const authorImage = document.getElementById('author-image');
+
+            
+            suggestions.innerHTML = '';
+            bookList.innerHTML = '';
+            authorName.textContent = '';
+            authorImage.style.display = 'none';
+
+            
+            if (input) {
+                const matches = Object.keys(authors).filter(authorKey =>
+                    authors[authorKey].name.toLowerCase().includes(input)
+                );
+
+                
+                if (matches.length > 0) {
+                    suggestions.style.display = 'block';
+                    matches.forEach(authorKey => {
+                        const li = document.createElement('li');
+                        li.textContent = authors[authorKey].name;
+                        li.onclick = () => showBooksByAuthor(authorKey);
+                        suggestions.appendChild(li);
+                    });
+                } else {
+                    suggestions.style.display = 'none';
+                }
+            } else {
+                suggestions.style.display = 'none';
+            }
+        }
+
+        
+        function showBooksByAuthor(authorKey) {
+            const author = authors[authorKey];
+            const bookList = document.getElementById('books');
+            const authorName = document.getElementById('author-name');
+            const authorImage = document.getElementById('author-image');
+            const suggestions = document.getElementById('author-suggestions');
+
+            
+            bookList.innerHTML = '';
+            authorName.textContent = author.name;
+            authorImage.src = author.image;
+            authorImage.style.display = 'block';
+
+            
+            suggestions.style.display = 'none';
+
+            
+            author.books.forEach(book => {
+                const li = document.createElement('li');
+                li.textContent = `${book.title} (Published: ${book.year})`;
+
+                
+                const addToCartButton = document.createElement('button');
+                addToCartButton.textContent = 'Add to Cart';
+                addToCartButton.className = 'add-to-cart';
+                addToCartButton.onclick = () => addToCart(book.title);
+
+                
+                li.appendChild(addToCartButton);
+                bookList.appendChild(li);
+            });
+        }
+
+       
+        function addToCart(bookTitle) {
+            cartCount++; 
+            document.getElementById('cart-count').textContent = `Items in Cart: ${cartCount}`;
+            alert(`${bookTitle} has been added to your cart!`);
+        }
+    </script>
+</body>

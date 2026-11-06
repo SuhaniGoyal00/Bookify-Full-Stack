@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBook Request</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+*{
+    background: url(https://t3.ftcdn.net/jpg/05/34/69/32/360_F_534693205_lOcpfVGlO5VWw4NmGbB5otMbki2NpaYs.jpg);
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    /* background: white; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px white;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: black;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: rgb(94, 188, 94);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #22aa13;
+    
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(0, 0, 0);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.popup p {
+    margin: 0 0 10px;
+}
+
+#closePopup {
+    background: green;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Request a Book</h1>
+        <form id="bookRequestForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="bookTitle">Book Title:</label>
+            <input type="text" id="bookTitle" required>
+            
+            <label for="authorName">Author Name:</label>
+            <input type="text" id="authorName" required>
+
+            <label for="additional">Additional info:</label>
+            <input type="text" id="additional" optional placeholder="You can add some additional information about book here ............(optional)"   >
+            
+            <button type="submit">Request Book</button>
+        </form>
+    </div>
+
+    <div id="popup" class="popup">
+        <p>Book request has been sent!</p>
+        <button id="closePopup">Close</button>
+    </div>
+
+    <script>
+        document.getElementById('bookRequestForm').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+
+    
+    const popup = document.getElementById('popup');
+    popup.style.display = 'block';
+
+   
+    document.getElementById('bookTitle').value = '';
+    document.getElementById('authorName').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+});
+
+
+document.getElementById('closePopup').addEventListener('click', function () {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+});
+    </script>
+</body>
+</html>
